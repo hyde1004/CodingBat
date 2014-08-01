@@ -52,6 +52,16 @@ def makes10(a, b):
 def near_hundred(n):
 	return (abs(n - 100) <= 10) or (abs(n - 200) <= 10)
 
+def pos_neg(a, b, negative):
+	# return (a * b < 0) or (negative == True and (a < 0 and b < 0))
+
+	# if negative == True:
+	# 	return a < 0 and b < 0
+	# else:
+	# 	return (a * b < 0) 
+
+	return (a < 0 and b < 0) if negative else (a * b < 0)
+
 class TestSleepIn(unittest.TestCase):
 	def test_sleep_in(self):
 		self.assertEqual(sleep_in(False, False), True)
@@ -88,6 +98,10 @@ class TestSleepIn(unittest.TestCase):
 		self.assertEqual(near_hundred(90), True)
 		self.assertEqual(near_hundred(89), False)
 
+	def test_pos_neg(self):
+		self.assertEqual(pos_neg(1, -1, False), True)
+		self.assertEqual(pos_neg(-1, 1, False), True)
+		self.assertEqual(pos_neg(-4, -5, True), True)
 
 if __name__ == "__main__":
 	unittest.main()
