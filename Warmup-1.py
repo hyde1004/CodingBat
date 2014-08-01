@@ -49,6 +49,9 @@ def makes10(a, b):
 
 	return (a == 10 or b == 10) or a + b == 10
 
+def near_hundred(n):
+	return (abs(n - 100) <= 10) or (abs(n - 200) <= 10)
+
 class TestSleepIn(unittest.TestCase):
 	def test_sleep_in(self):
 		self.assertEqual(sleep_in(False, False), True)
@@ -79,6 +82,12 @@ class TestSleepIn(unittest.TestCase):
 		self.assertEqual(makes10(9, 10), True)
 		self.assertEqual(makes10(9, 9), False)
 		self.assertEqual(makes10(1, 9), True)
+
+	def test_near_hundred(self):
+		self.assertEqual(near_hundred(93), True)
+		self.assertEqual(near_hundred(90), True)
+		self.assertEqual(near_hundred(89), False)
+
 
 if __name__ == "__main__":
 	unittest.main()
