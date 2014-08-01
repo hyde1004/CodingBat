@@ -63,12 +63,14 @@ def pos_neg(a, b, negative):
 	return (a < 0 and b < 0) if negative else (a * b < 0)
 
 def not_string(str):
-	# return "not " + str
 	if str[0:3] == "not":
 		return str
 	else:
 		return "not " + str
-		
+
+def missing_char(str, n):
+	return str[:n] + str[n+1:]
+
 class TestSleepIn(unittest.TestCase):
 	def test_sleep_in(self):
 		self.assertEqual(sleep_in(False, False), True)
@@ -115,6 +117,10 @@ class TestSleepIn(unittest.TestCase):
 		self.assertEqual(not_string('x'), 'not x')
 		self.assertEqual(not_string('not bad'), 'not bad')
 
+	def test_missiong_char(self):
+		self.assertEqual(missing_char('kitten', 1), 'ktten')
+		self.assertEqual(missing_char('kitten', 0), 'itten')
+		self.assertEqual(missing_char('kitten', 4), 'kittn')
 
 if __name__ == "__main__":
 	unittest.main()
