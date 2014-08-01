@@ -20,6 +20,17 @@ def sum_double(a, b):
 	# 	sum *= 2
 	# return sum
 
+def diff21(n):
+	# if n > 21:
+	# 	return abs(21 - n) * 2
+	# else:
+	# 	return abs(21 - n)
+
+	diff = abs(21 - n)
+	if n > 21:
+		diff *= 2
+	return diff
+	
 class TestSleepIn(unittest.TestCase):
 	def test_sleep_in(self):
 		self.assertEqual(sleep_in(False, False), True)
@@ -35,6 +46,12 @@ class TestSleepIn(unittest.TestCase):
 		self.assertEqual(sum_double(1, 2), 3)
 		self.assertEqual(sum_double(3, 2), 5)
 		self.assertEqual(sum_double(2, 2), 8)
+
+	def test_diff21(self):
+		self.assertEqual(diff21(19), 2)
+		self.assertEqual(diff21(10), 11)
+		self.assertEqual(diff21(21), 0)
+
 
 if __name__ == "__main__":
 	unittest.main()
