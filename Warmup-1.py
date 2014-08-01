@@ -31,6 +31,15 @@ def diff21(n):
 		diff *= 2
 	return diff
 	
+def parrot_trouble(talking, hour):
+	# if talking and ( hour < 7 or hour > 20):
+	# 	return True
+	# else:
+	# 	return False
+
+	return talking and ( hour < 7 or hour > 20)
+
+
 class TestSleepIn(unittest.TestCase):
 	def test_sleep_in(self):
 		self.assertEqual(sleep_in(False, False), True)
@@ -51,6 +60,11 @@ class TestSleepIn(unittest.TestCase):
 		self.assertEqual(diff21(19), 2)
 		self.assertEqual(diff21(10), 11)
 		self.assertEqual(diff21(21), 0)
+
+	def test_parrot_trouble(self):
+		self.assertEqual(parrot_trouble(True, 6), True)
+		self.assertEqual(parrot_trouble(True, 7), False)
+		self.assertEqual(parrot_trouble(False, 6), False)
 
 
 if __name__ == "__main__":
