@@ -71,6 +71,15 @@ def not_string(str):
 def missing_char(str, n):
 	return str[:n] + str[n+1:]
 
+def front_back(str):
+	front = str[0]
+	back = str[len(str)-1]
+	
+	if len(str) == 1:
+		return str
+	else:
+		return back + str[1:-1] + front
+
 class TestSleepIn(unittest.TestCase):
 	def test_sleep_in(self):
 		self.assertEqual(sleep_in(False, False), True)
@@ -121,6 +130,11 @@ class TestSleepIn(unittest.TestCase):
 		self.assertEqual(missing_char('kitten', 1), 'ktten')
 		self.assertEqual(missing_char('kitten', 0), 'itten')
 		self.assertEqual(missing_char('kitten', 4), 'kittn')
+
+	def test_front_back(self):
+		self.assertEqual(front_back('code'), 'eodc')
+		self.assertEqual(front_back('a'), 'a')
+		self.assertEqual(front_back('ab'), 'ba')
 
 if __name__ == "__main__":
 	unittest.main()
