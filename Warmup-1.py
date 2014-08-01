@@ -39,6 +39,15 @@ def parrot_trouble(talking, hour):
 
 	return talking and ( hour < 7 or hour > 20)
 
+def makes10(a, b):
+	#	return True
+
+	# if (a == 10 or b == 10) or a + b == 10:
+	# 	return True
+	# else:
+	# 	return False
+
+	return (a == 10 or b == 10) or a + b == 10
 
 class TestSleepIn(unittest.TestCase):
 	def test_sleep_in(self):
@@ -66,6 +75,10 @@ class TestSleepIn(unittest.TestCase):
 		self.assertEqual(parrot_trouble(True, 7), False)
 		self.assertEqual(parrot_trouble(False, 6), False)
 
+	def test_makes10(self):
+		self.assertEqual(makes10(9, 10), True)
+		self.assertEqual(makes10(9, 9), False)
+		self.assertEqual(makes10(1, 9), True)
 
 if __name__ == "__main__":
 	unittest.main()
