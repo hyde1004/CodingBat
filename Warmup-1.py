@@ -62,6 +62,13 @@ def pos_neg(a, b, negative):
 
 	return (a < 0 and b < 0) if negative else (a * b < 0)
 
+def not_string(str):
+	# return "not " + str
+	if str[0:3] == "not":
+		return str
+	else:
+		return "not " + str
+		
 class TestSleepIn(unittest.TestCase):
 	def test_sleep_in(self):
 		self.assertEqual(sleep_in(False, False), True)
@@ -102,6 +109,12 @@ class TestSleepIn(unittest.TestCase):
 		self.assertEqual(pos_neg(1, -1, False), True)
 		self.assertEqual(pos_neg(-1, 1, False), True)
 		self.assertEqual(pos_neg(-4, -5, True), True)
+
+	def test_not_string(self):
+		self.assertEqual(not_string('candy'), 'not candy')
+		self.assertEqual(not_string('x'), 'not x')
+		self.assertEqual(not_string('not bad'), 'not bad')
+
 
 if __name__ == "__main__":
 	unittest.main()
