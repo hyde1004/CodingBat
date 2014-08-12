@@ -20,6 +20,9 @@ def string_splosion(str):
 def last2(str):
 	return 1
 
+def array_count9(nums):
+	return nums.count(9)
+
 class TestWarmUp2(unittest.TestCase):
 	def test_string_times(self):
 		self.assertEqual(string_times('Hi', 2), 'HiHi')
@@ -44,7 +47,10 @@ class TestWarmUp2(unittest.TestCase):
 	def test_last2(self):
 		self.assertEqual(last2('hixxhi'), 1)
 
-	
+	def test_array_count9(self):
+		self.assertEqual(array_count9([1, 2, 9]), 1)
+		self.assertEqual(array_count9([1, 9, 9]), 2)
+		self.assertEqual(array_count9([1, 9, 9, 3, 9]), 3)
 
 if __name__ == "__main__":
 	unittest.main()
