@@ -80,6 +80,12 @@ def front_back(str):
 	else:
 		return back + str[1:-1] + front
 
+def front3(str):
+	if len(str) >= 3:
+		return str[:3] * 3
+	else:
+		return str * 3
+
 class TestSleepIn(unittest.TestCase):
 	def test_sleep_in(self):
 		self.assertEqual(sleep_in(False, False), True)
@@ -135,6 +141,11 @@ class TestSleepIn(unittest.TestCase):
 		self.assertEqual(front_back('code'), 'eodc')
 		self.assertEqual(front_back('a'), 'a')
 		self.assertEqual(front_back('ab'), 'ba')
+
+	def test_front3(self):
+		self.assertEqual(front3('Java'), 'JavJavJav')
+		self.assertEqual(front3('Cho'), 'ChoChoCho')
+		self.assertEqual(front3('abc'), 'abcabcabc')
 
 if __name__ == "__main__":
 	unittest.main()
