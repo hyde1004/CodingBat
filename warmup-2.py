@@ -9,6 +9,14 @@ def front_times(str, n):
 def string_bits(str):
 	return str[::2]
 
+def string_splosion(str):
+	splosion = ''
+
+	for i in range(len(str)+1):
+		splosion += str[:i]
+
+	return splosion
+
 class TestWarmUp2(unittest.TestCase):
 	def test_string_times(self):
 		self.assertEqual(string_times('Hi', 2), 'HiHi')
@@ -25,5 +33,10 @@ class TestWarmUp2(unittest.TestCase):
 		self.assertEqual(string_bits('Hi'), 'H')
 		self.assertEqual(string_bits('Heeololeo'), 'Hello')
 		
+	def test_string_splosion(self):
+		self.assertEqual(string_splosion('Code'), 'CCoCodCode')
+		self.assertEqual(string_splosion('abc'), 'aababc')
+		self.assertEqual(string_splosion('ab'), 'aab')
+
 if __name__ == "__main__":
 	unittest.main()
