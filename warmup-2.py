@@ -26,6 +26,9 @@ def array_count9(nums):
 def array_front9(nums):
 	return nums[:4].count(9) > 0
 
+def array123(nums):
+	return nums.count(1) > 0 and nums.count(2) > 0 and nums.count(3) > 0
+
 class TestWarmUp2(unittest.TestCase):
 	def test_string_times(self):
 		self.assertEqual(string_times('Hi', 2), 'HiHi')
@@ -59,6 +62,11 @@ class TestWarmUp2(unittest.TestCase):
 		self.assertEqual(array_front9([1, 2, 9, 3, 4]), True)
 		self.assertEqual(array_front9([1, 2, 3, 4, 9]), False)
 		self.assertEqual(array_front9([1, 2, 3, 4, 5]), False)
+
+	def test_array123(self):
+		self.assertEqual(array123([1, 1, 2, 3]), True)
+		self.assertEqual(array123([1, 1, 2, 4, 1]), False)
+		self.assertEqual(array123([1, 1, 2, 1, 2, 3]), True)
 
 if __name__ == "__main__":
 	unittest.main()
