@@ -17,6 +17,9 @@ def string_splosion(str):
 
 	return splosion
 
+def last2(str):
+	return 1
+
 class TestWarmUp2(unittest.TestCase):
 	def test_string_times(self):
 		self.assertEqual(string_times('Hi', 2), 'HiHi')
@@ -37,6 +40,11 @@ class TestWarmUp2(unittest.TestCase):
 		self.assertEqual(string_splosion('Code'), 'CCoCodCode')
 		self.assertEqual(string_splosion('abc'), 'aababc')
 		self.assertEqual(string_splosion('ab'), 'aab')
+
+	def test_last2(self):
+		self.assertEqual(last2('hixxhi'), 1)
+
+	
 
 if __name__ == "__main__":
 	unittest.main()
