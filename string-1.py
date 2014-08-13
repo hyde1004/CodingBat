@@ -6,6 +6,9 @@ def hello_name(name):
 def make_abba(a, b):
 	return a + b + b + a
 
+def make_tags(tag, word):
+	return '<' + tag + '>' + word + '</' + tag + '>'
+
 class TestString1(unittest.TestCase):
 	def test_hello_name(self):
 		self.assertEqual(hello_name('Bob'), 'Hello Bob!')
@@ -16,6 +19,11 @@ class TestString1(unittest.TestCase):
 		self.assertEqual(make_abba('Hi', 'Bye'), 'HiByeByeHi')
 		self.assertEqual(make_abba('Yo', 'Alice'), 'YoAliceAliceYo')
 		self.assertEqual(make_abba('What', 'Up'), 'WhatUpUpWhat')
+
+	def test_make_tags(self):
+		self.assertEqual(make_tags('i', 'Yay'), '<i>Yay</i>')
+		self.assertEqual(make_tags('i', 'Hello'), '<i>Hello</i>')
+		self.assertEqual(make_tags('cite', 'Yay'), '<cite>Yay</cite>')
 
 if __name__ == "__main__":
 	unittest.main()
