@@ -9,6 +9,9 @@ def make_abba(a, b):
 def make_tags(tag, word):
 	return '<' + tag + '>' + word + '</' + tag + '>'
 
+def make_out_word(out, word):
+	return out[:2] + word + out[2:]
+
 class TestString1(unittest.TestCase):
 	def test_hello_name(self):
 		self.assertEqual(hello_name('Bob'), 'Hello Bob!')
@@ -24,6 +27,11 @@ class TestString1(unittest.TestCase):
 		self.assertEqual(make_tags('i', 'Yay'), '<i>Yay</i>')
 		self.assertEqual(make_tags('i', 'Hello'), '<i>Hello</i>')
 		self.assertEqual(make_tags('cite', 'Yay'), '<cite>Yay</cite>')
+
+	def test_make_out_word(self):
+		self.assertEqual(make_out_word('<<>>', 'Yay'), '<<Yay>>')
+		self.assertEqual(make_out_word('<<>>', 'WooHoo'), '<<WooHoo>>')
+		self.assertEqual(make_out_word('[[]]', 'word'), '[[word]]')
 
 if __name__ == "__main__":
 	unittest.main()
