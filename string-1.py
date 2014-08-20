@@ -12,6 +12,10 @@ def make_tags(tag, word):
 def make_out_word(out, word):
 	return out[:2] + word + out[2:]
 
+def extra_end(str):
+#	return (str[-2] + str[-1]) * 3
+	return str[-2:] * 3
+	
 class TestString1(unittest.TestCase):
 	def test_hello_name(self):
 		self.assertEqual(hello_name('Bob'), 'Hello Bob!')
@@ -32,6 +36,11 @@ class TestString1(unittest.TestCase):
 		self.assertEqual(make_out_word('<<>>', 'Yay'), '<<Yay>>')
 		self.assertEqual(make_out_word('<<>>', 'WooHoo'), '<<WooHoo>>')
 		self.assertEqual(make_out_word('[[]]', 'word'), '[[word]]')
+
+	def test_extra_end(self):
+		self.assertEqual(extra_end('Hello'), 'lololo')
+		self.assertEqual(extra_end('ab'), 'ababab')
+		self.assertEqual(extra_end('Hi'), 'HiHiHi')
 
 if __name__ == "__main__":
 	unittest.main()
