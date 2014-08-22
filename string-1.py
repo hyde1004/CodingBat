@@ -25,6 +25,16 @@ def first_half(str):
 def without_end(str):
 	return str[1:-1]
 
+def combo_string(a, b):
+	if len(a) > len(b):
+		long_string = a
+		short_string = b
+	else:
+		long_string = b
+		short_string = a
+
+	return short_string + long_string + short_string
+
 class TestString1(unittest.TestCase):
 	def test_hello_name(self):
 		self.assertEqual(hello_name('Bob'), 'Hello Bob!')
@@ -66,5 +76,10 @@ class TestString1(unittest.TestCase):
 		self.assertEqual(without_end('java'), 'av')
 		self.assertEqual(without_end('coding'), 'odin')
 
+	def test_combo_string(self):
+		self.assertEqual(combo_string('Hello', 'hi'), 'hiHellohi')
+		self.assertEqual(combo_string('hi', 'Hello'), 'hiHellohi')
+		self.assertEqual(combo_string('aaa', 'b'), 'baaab')
+		
 if __name__ == "__main__":
 	unittest.main()
