@@ -15,6 +15,9 @@ def common_end(a, b):
 def sum3(nums):
 	return sum(nums)
 
+def rotate_left3(nums):
+	return nums[1:] + nums[0:1]
+
 class TestList1(unittest.TestCase):
 	def test_first_last6(self):
 		self.assertEqual(first_last6([1, 2, 6]), True)
@@ -36,6 +39,11 @@ class TestList1(unittest.TestCase):
 		self.assertEqual(sum3([1, 2, 3]), 6)
 		self.assertEqual(sum3([5, 11, 2]), 18)
 		self.assertEqual(sum3([7, 0, 0]), 7)
+
+	def test_rotate_left3(self):
+		self.assertEqual(rotate_left3([1, 2, 3]), [2, 3, 1])
+		self.assertEqual(rotate_left3([5, 11, 9]), [11, 9, 5])
+		self.assertEqual(rotate_left3([7, 0, 0]), [0, 0, 7])
 
 if __name__ == "__main__":
 	unittest.main()
