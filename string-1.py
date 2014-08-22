@@ -35,6 +35,9 @@ def combo_string(a, b):
 
 	return short_string + long_string + short_string
 
+def non_start(a, b):
+	return a[1:] + b[1:]
+
 class TestString1(unittest.TestCase):
 	def test_hello_name(self):
 		self.assertEqual(hello_name('Bob'), 'Hello Bob!')
@@ -80,6 +83,11 @@ class TestString1(unittest.TestCase):
 		self.assertEqual(combo_string('Hello', 'hi'), 'hiHellohi')
 		self.assertEqual(combo_string('hi', 'Hello'), 'hiHellohi')
 		self.assertEqual(combo_string('aaa', 'b'), 'baaab')
-		
+
+	def test_non_start(self):
+		self.assertEqual(non_start('Hello', 'There'), 'ellohere')
+		self.assertEqual(non_start('java', 'code'), 'avaode')
+		self.assertEqual(non_start('shotl', 'java'), 'hotlava')
+
 if __name__ == "__main__":
 	unittest.main()
