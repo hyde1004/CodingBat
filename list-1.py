@@ -12,6 +12,9 @@ def make_pi():
 def common_end(a, b):
 	return (a[0] == b[0] or a[-1] == b[-1])
 
+def sum3(nums):
+	return sum(nums)
+
 class TestList1(unittest.TestCase):
 	def test_first_last6(self):
 		self.assertEqual(first_last6([1, 2, 6]), True)
@@ -28,6 +31,11 @@ class TestList1(unittest.TestCase):
 		self.assertEqual(common_end([1, 2, 3], [7, 3]), True)
 		self.assertEqual(common_end([1, 2, 3], [7, 3, 2]), False)
 		self.assertEqual(common_end([1, 2, 3], [1, 3]), True)
+
+	def test_sum3(self):
+		self.assertEqual(sum3([1, 2, 3]), 6)
+		self.assertEqual(sum3([5, 11, 2]), 18)
+		self.assertEqual(sum3([7, 0, 0]), 7)
 
 if __name__ == "__main__":
 	unittest.main()
