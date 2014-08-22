@@ -16,6 +16,9 @@ def extra_end(str):
 #	return (str[-2] + str[-1]) * 3
 	return str[-2:] * 3
 	
+def first_two(str):
+	return str[:2]
+
 class TestString1(unittest.TestCase):
 	def test_hello_name(self):
 		self.assertEqual(hello_name('Bob'), 'Hello Bob!')
@@ -41,6 +44,11 @@ class TestString1(unittest.TestCase):
 		self.assertEqual(extra_end('Hello'), 'lololo')
 		self.assertEqual(extra_end('ab'), 'ababab')
 		self.assertEqual(extra_end('Hi'), 'HiHiHi')
+
+	def test_first_two(self):
+		self.assertEqual(first_two('Hello'), 'He');
+		self.assertEqual(first_two('abcdefg'), 'ab');
+		self.assertEqual(first_two('ab'), 'ab');
 
 if __name__ == "__main__":
 	unittest.main()
