@@ -22,6 +22,9 @@ def first_two(str):
 def first_half(str):
 	return str[:len(str)//2]
 
+def without_end(str):
+	return str[1:-1]
+
 class TestString1(unittest.TestCase):
 	def test_hello_name(self):
 		self.assertEqual(hello_name('Bob'), 'Hello Bob!')
@@ -57,6 +60,11 @@ class TestString1(unittest.TestCase):
 		self.assertEqual(first_half('WooHoo'), 'Woo')
 		self.assertEqual(first_half('HelloHello'), 'Hello')
 		self.assertEqual(first_half('abcdef'), 'abc')
-		
+
+	def test_without_end(self):
+		self.assertEqual(without_end('Hello'), 'ell')
+		self.assertEqual(without_end('java'), 'av')
+		self.assertEqual(without_end('coding'), 'odin')
+
 if __name__ == "__main__":
 	unittest.main()
